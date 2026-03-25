@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: heyxin-scheduler
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python scheduler.py
+    envVars:
+      - key: DIFY_API_KEY
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: SCAN_INTERVAL_MINUTES
+        value: "10"
